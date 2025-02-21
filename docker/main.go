@@ -44,7 +44,7 @@ func main() {
 	}
 
 	log.Println("Starting dockerd")
-	cmd := exec.Command("./docker/dockerd", "--data-root", "/perm/var/lib/docker")
+	cmd := exec.Command("./docker/dockerd", "--data-root=/perm/var/lib/docker", "--ip6tables=false")
 	cmd.Env = []string{"PATH=/user:" + filepath.Join(cwd, "docker")}
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
